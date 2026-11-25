@@ -3,6 +3,9 @@
 <head>
   <base target="_top">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root{
       --nabawi-dark:#124729;
@@ -67,8 +70,8 @@
     .p-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:15px;margin-bottom:22px}
     .p-card{background:linear-gradient(165deg,#E7F3EC 0%,#F5F9F6 100%);border:1.5px solid #B4D8C3;border-radius:14px;overflow:hidden;box-shadow:0 3px 10px rgba(18,71,41,.08);display:flex;flex-direction:column}
     .p-card.is-pending{background:linear-gradient(165deg,#FBF3DF 0%,#F7F6F2 100%);border-color:#E5C982}
-    .p-card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 15px;background:linear-gradient(120deg,#B9891D,var(--gold),#DFB346);color:#1E1A10;border-bottom:3px solid var(--nabawi)}
-    .p-card-name{font-size:16px;font-weight:700;color:#1E1A10;letter-spacing:.2px}
+    .p-card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:13px 16px;background:linear-gradient(120deg,#A67814,var(--gold),#D8A93A);color:#FFFFFF;border-bottom:3px solid var(--nabawi)}
+    .p-card-name{font-family:'Poppins',sans-serif;font-size:21px;font-weight:800;color:#FFFFFF;letter-spacing:.6px;line-height:1.2;text-shadow:0 1px 3px rgba(30,26,16,.45)}
     .p-card-body{padding:14px 15px;display:flex;flex-direction:column;gap:12px}
     .p-card-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     .p-stat-box{background:rgba(255,255,255,.88);border:1px solid #D3DED7;border-radius:9px;padding:9px 11px}
@@ -326,7 +329,7 @@ function renderAll() {
       <div class="p-card-body">
         <div class="p-card-stats">
           <div class="p-stat-box">
-            <small>Jumlah Satu Bahagian</small>
+            <small>Total</small>
             <strong>${money(p.target)}</strong>
           </div>
           <div class="p-stat-box paid">
