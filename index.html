@@ -48,8 +48,8 @@
     .pill{display:inline-block;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.3px;background:var(--grey-soft);color:#4B5563;border:1px solid #D1D5DB}
     .pill.ok{background:#E3F3EA;color:#124729;border-color:#A7D7BC}
     .pill.pending{background:var(--gold-soft);color:var(--gold-ink);border-color:#E8CE8B}
-    .pill.blue{background:#DBEAFE;color:#1D4ED8;border-color:#93C5FD}
-    .pill.orange{background:#FFEDD5;color:#C2410C;border-color:#FDBA74}
+    .pill.blue{background:#2563EB;color:#FFFFFF;border-color:#1D4ED8}
+    .pill.orange{background:#EA580C;color:#FFFFFF;border-color:#C2410C}
     .bar{height:9px;background:#E5E7EB;border-radius:20px;overflow:hidden;margin-top:7px}
     .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--nabawi),var(--gold));transition:width .3s}
     .formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
@@ -63,23 +63,27 @@
     .info-box{padding:11px 13px;border-radius:9px;background:#EDF5F0;border:1px solid #BFE0CC;color:var(--nabawi-dark);font-size:12px;margin-bottom:14px}
     .hidden{display:none!important}.right{text-align:right}.empty{padding:28px;text-align:center;color:var(--muted)}
 
-    /* Gaya Kotak Peserta di Dashboard */
-    .p-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-bottom:22px}
-    .p-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--nabawi);border-radius:13px;padding:16px;box-shadow:0 2px 8px rgba(18,71,41,.05);display:flex;flex-direction:column;gap:12px}
-    .p-card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid var(--line);padding-bottom:10px}
-    .p-card-name{font-size:16px;font-weight:700;color:var(--nabawi-dark)}
+    /* Gaya Kotak Peserta Berwarna di Dashboard */
+    .p-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:15px;margin-bottom:22px}
+    .p-card{background:linear-gradient(165deg,#E7F3EC 0%,#F5F9F6 100%);border:1.5px solid #B4D8C3;border-radius:14px;overflow:hidden;box-shadow:0 3px 10px rgba(18,71,41,.08);display:flex;flex-direction:column}
+    .p-card.is-pending{background:linear-gradient(165deg,#FBF3DF 0%,#F7F6F2 100%);border-color:#E5C982}
+    .p-card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 15px;background:linear-gradient(120deg,var(--nabawi-dark),var(--nabawi));color:#fff;border-bottom:3px solid var(--gold)}
+    .p-card-name{font-size:16px;font-weight:700;color:#fff;letter-spacing:.2px}
+    .p-card-body{padding:14px 15px;display:flex;flex-direction:column;gap:12px}
     .p-card-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .p-stat-box{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+    .p-stat-box{background:rgba(255,255,255,.88);border:1px solid #D3DED7;border-radius:9px;padding:9px 11px}
+    .p-card.is-pending .p-stat-box{border-color:#E6D6AE}
     .p-stat-box small{display:block;font-size:11px;color:var(--muted);margin-bottom:3px}
     .p-stat-box strong{font-size:15px;color:var(--ink)}
-    .p-stat-box.paid strong{color:var(--nabawi)}
-    .p-pay-section{border-top:1px dashed var(--line);padding-top:10px}
-    .p-pay-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--muted);margin-bottom:7px}
+    .p-stat-box.paid{background:#E1F2E7;border-color:#A8D5BA}
+    .p-stat-box.paid strong{color:var(--nabawi-dark)}
+    .p-pay-section{border-top:1px dashed rgba(22,91,51,.25);padding-top:10px}
+    .p-pay-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--nabawi-dark);margin-bottom:7px}
     .p-pay-list{list-style:none;margin:0;padding:0;max-height:135px;overflow-y:auto;display:flex;flex-direction:column;gap:5px}
-    .p-pay-item{display:flex;justify-content:space-between;align-items:center;font-size:12px;background:#F9FAFB;border:1px solid #ECEFF3;border-radius:7px;padding:6px 9px}
-    .p-pay-item span{color:var(--muted)}
-    .p-pay-item b{color:var(--ink)}
-    .p-pay-empty{font-size:12px;color:var(--muted);font-style:italic;padding:4px 0}
+    .p-pay-item{display:flex;justify-content:space-between;align-items:center;font-size:12px;background:rgba(255,255,255,.92);border:1px solid #D8E2DC;border-radius:7px;padding:6px 10px}
+    .p-pay-item span{color:#4B5563}
+    .p-pay-item b{color:var(--nabawi-dark)}
+    .p-pay-empty{font-size:12px;color:var(--muted);font-style:italic;background:rgba(255,255,255,.65);padding:7px 10px;border-radius:7px}
 
     @media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.formgrid{grid-template-columns:1fr}.top h1{font-size:20px}.metric strong{font-size:18px}.sectionhead{align-items:flex-start;flex-direction:column}}
   </style>
@@ -304,8 +308,9 @@ function renderAll() {
 
   const activeParticipants = APP.participants.filter(p => p.active);
 
-  // Render Kotak Peserta di Dashboard
+  // Render Kotak Peserta Berwarna di Dashboard
   document.getElementById('participantCards').innerHTML = activeParticipants.map(p => {
+    const isDone = p.status === 'SELESAI';
     const ownPayments = APP.payments.filter(pay => pay.participantId === p.id);
     const payListHtml = ownPayments.length
       ? `<ul class="p-pay-list">${ownPayments.map(pay =>
@@ -313,24 +318,26 @@ function renderAll() {
         ).join('')}</ul>`
       : `<div class="p-pay-empty">Tiada rekod bayaran lagi.</div>`;
 
-    return `<div class="p-card">
+    return `<div class="p-card ${isDone ? 'is-done' : 'is-pending'}">
       <div class="p-card-head">
         <span class="p-card-name">${esc(p.name || 'Belum dinamakan')}</span>
         ${cardPill(p.status)}
       </div>
-      <div class="p-card-stats">
-        <div class="p-stat-box">
-          <small>Total</small>
-          <strong>${money(p.target)}</strong>
+      <div class="p-card-body">
+        <div class="p-card-stats">
+          <div class="p-stat-box">
+            <small>Total</small>
+            <strong>${money(p.target)}</strong>
+          </div>
+          <div class="p-stat-box paid">
+            <small>Jumlah Dah Bayar</small>
+            <strong>${money(p.paid)}</strong>
+          </div>
         </div>
-        <div class="p-stat-box paid">
-          <small>Jumlah Dah Bayar</small>
-          <strong>${money(p.paid)}</strong>
+        <div class="p-pay-section">
+          <div class="p-pay-title">Tarikh &amp; Jumlah Bayar (${ownPayments.length})</div>
+          ${payListHtml}
         </div>
-      </div>
-      <div class="p-pay-section">
-        <div class="p-pay-title">Tarikh &amp; Jumlah Bayar (${ownPayments.length})</div>
-        ${payListHtml}
       </div>
     </div>`;
   }).join('') || `<div class="card empty" style="grid-column:1/-1">Tiada peserta aktif untuk dipaparkan.</div>`;
