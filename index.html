@@ -63,12 +63,12 @@
     .info-box{padding:11px 13px;border-radius:9px;background:#EDF5F0;border:1px solid #BFE0CC;color:var(--nabawi-dark);font-size:12px;margin-bottom:14px}
     .hidden{display:none!important}.right{text-align:right}.empty{padding:28px;text-align:center;color:var(--muted)}
 
-    /* Gaya Kotak Peserta Berwarna di Dashboard */
+    /* Gaya Kotak Peserta Berwarna dengan Head Gold */
     .p-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:15px;margin-bottom:22px}
     .p-card{background:linear-gradient(165deg,#E7F3EC 0%,#F5F9F6 100%);border:1.5px solid #B4D8C3;border-radius:14px;overflow:hidden;box-shadow:0 3px 10px rgba(18,71,41,.08);display:flex;flex-direction:column}
     .p-card.is-pending{background:linear-gradient(165deg,#FBF3DF 0%,#F7F6F2 100%);border-color:#E5C982}
-    .p-card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 15px;background:linear-gradient(120deg,var(--nabawi-dark),var(--nabawi));color:#fff;border-bottom:3px solid var(--gold)}
-    .p-card-name{font-size:16px;font-weight:700;color:#fff;letter-spacing:.2px}
+    .p-card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 15px;background:linear-gradient(120deg,#B9891D,var(--gold),#DFB346);color:#1E1A10;border-bottom:3px solid var(--nabawi)}
+    .p-card-name{font-size:16px;font-weight:700;color:#1E1A10;letter-spacing:.2px}
     .p-card-body{padding:14px 15px;display:flex;flex-direction:column;gap:12px}
     .p-card-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     .p-stat-box{background:rgba(255,255,255,.88);border:1px solid #D3DED7;border-radius:9px;padding:9px 11px}
@@ -326,7 +326,7 @@ function renderAll() {
       <div class="p-card-body">
         <div class="p-card-stats">
           <div class="p-stat-box">
-            <small>Total</small>
+            <small>Jumlah Satu Bahagian</small>
             <strong>${money(p.target)}</strong>
           </div>
           <div class="p-stat-box paid">
